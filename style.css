@@ -2114,55 +2114,80 @@ button {
     display: none;
   }
   
-  /* Hero Section Typography Placement on Mobile */
+  /* 360° Car Canvas on Mobile - Fit cleanly in dedicated center zone */
+  .car-canvas {
+    object-fit: contain;
+    object-position: center 48%;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Hero Section Typography Placement on Mobile - Positioned at top cleanly */
   .hero-content {
-    left: 1.2rem;
-    right: 1.2rem;
-    top: 13%;
-    transform: none;
+    position: absolute;
+    top: calc(var(--nav-height) + 10px);
+    left: 1.25rem;
+    right: 1.25rem;
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
   }
 
   .hero-eyebrow {
-    font-size: 0.68rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.65rem;
+    margin-bottom: 0.35rem;
     letter-spacing: 0.2em;
+    justify-content: center;
+  }
+
+  .eyebrow-line {
+    width: 18px;
   }
 
   .hero-title {
-    font-size: clamp(2rem, 8vw, 2.75rem);
+    font-size: clamp(1.8rem, 7.5vw, 2.4rem);
     line-height: 0.95;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.35rem;
+    text-align: center;
+  }
+
+  .hero-title .title-line {
+    display: inline-block;
+  }
+
+  .hero-title .title-line + .title-line {
+    margin-left: 0.35rem;
   }
 
   .hero-tagline {
-    font-size: 1.05rem;
-    margin-bottom: 0.3rem;
+    font-size: 0.88rem;
+    color: var(--color-silver);
+    margin-bottom: 0;
+    letter-spacing: 0.04em;
   }
 
   .hero-description {
-    font-size: 0.84rem;
-    margin-bottom: 1.2rem;
-    line-height: 1.45;
-    max-width: 320px;
+    display: none;
   }
 
   .hero-btn-group {
+    position: absolute;
+    bottom: calc(var(--nav-height) * -1 - 380px);
+    left: 0;
+    right: 0;
     display: flex;
     gap: 0.6rem;
     width: 100%;
-  }
-
-  .hero-btn-group .btn {
-    flex: 1;
-    padding: 0.75rem 0.8rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    text-align: center;
+    display: none; /* Hide cluttered buttons on mobile hero to give full prominence to 360 car */
   }
 
   .hero-scroll-guide {
     bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .scroll-text {

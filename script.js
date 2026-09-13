@@ -157,7 +157,10 @@ function updateLoop() {
     if (state.currentProgress < 0.25) {
       const fadeProgress = Math.min(1, state.currentProgress * 4.5);
       state.heroContent.style.opacity = (1 - fadeProgress).toFixed(3);
-      state.heroContent.style.transform = `translateY(calc(-50% - ${fadeProgress * 30}px))`;
+      const isMobile = window.innerWidth <= 768;
+      state.heroContent.style.transform = isMobile
+        ? `translateY(-${fadeProgress * 25}px)`
+        : `translateY(calc(-50% - ${fadeProgress * 30}px))`;
       state.heroContent.style.pointerEvents = fadeProgress > 0.9 ? 'none' : 'auto';
     } else if (state.heroContent.style.opacity !== '0') {
       state.heroContent.style.opacity = '0';
